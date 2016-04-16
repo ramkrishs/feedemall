@@ -1,0 +1,131 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: table;
+    font-weight: 100;
+    font-family: 'Lato';
+}
+
+.container {
+    text-align: center;
+    display: table-cell;
+    vertical-align: top;
+}
+
+.content {
+    text-align: center;
+    display: inline-block;
+}
+
+.title {
+    font-size: 90px;
+}
+.home-logo{
+    margin-left: 4%;
+    width: 400px;
+}
+.has-error{
+    border: 1px solid #EF1919 !important;
+}
+.error{
+    position: relative;
+    right: -500px;
+    text-align: left;
+    padding: 10px 13px;
+    margin: 0px 0 10px;
+    font-size: 14px;
+    border-left: 5px solid #EF1919;
+}
+/*
+Basic input element using psuedo classes
+*/
+
+html {
+    font-family: 'Lora', sans-serif;
+    width: 100%;
+}
+
+body {
+    margin: 1% auto 0 auto;
+    width: 90%;
+    max-width: 1125px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 2.5%;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+.form {
+    width: 320px;
+    margin:40px 30px 0px -60px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    transform: translateZ(0);
+}
+.form .field {
+    position: relative;
+    margin-bottom: 10px;
+    height: 40px;
+}
+.form .field .placeholder-label {
+    position: absolute;
+    top: 14px;
+    left: 176px;
+    font-weight: 300;
+    color: #aaa;
+    cursor: text;
+    z-index: 200;
+    transition: all 0.25s;
+}
+.form .field .placeholder-label:after {
+    content: ":";
+    opacity: 0;
+    color: #333;
+    transition: all 0.25s;
+}
+.form .field .placeholder-input {
+    position: absolute;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #aaa;
+    font-size: 16px;
+    z-index: 100;
+    transition: all 0.25s;
+}
+.form .field .placeholder-input:focus, .form .field .placeholder-input.not-empty {
+    margin-left: 100px;
+    width: 220px;
+    outline: none;
+}
+.form .field .placeholder-input:focus + .placeholder-label, .form .field .placeholder-input.not-empty + .placeholder-label {
+    color: #333;
+    cursor: default;
+}
+.form .field .placeholder-input:focus + .placeholder-label:after, .form .field .placeholder-input.not-empty + .placeholder-label:after {
+    opacity: 1;
+}
+
+.explanation {
+    width: 500px;
+    margin: 0 auto;
+    line-height: 1.5;
+    text-align: center;
+    color: #FF9800;
+    font-weight: 800;
+}
+
+.submit-btn{
+    width:100%;
+}

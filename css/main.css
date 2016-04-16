@@ -1,0 +1,156 @@
+.home-logo{
+
+    width: 400px;
+}
+
+.container{
+    margin-top: 70px;
+}
+
+.navbar-default{
+    background: #fff;
+    border-bottom: 10px solid #DDD;
+    border-top: 3px solid #4CAF50;
+}
+
+.btn{
+    border-radius: 0px;
+    transition: .5s background-color ease-out !important;
+}
+a.list-group-item {
+    height:auto;
+    min-height:220px;
+}
+a.list-group-item.active small {
+    color:#fff;
+}
+.stars {
+    margin:20px auto 1px;
+}
+
+/** Navbar Drop Down */
+
+#login-dp{
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,.8);
+}
+#login-dp .help-block{
+    font-size:12px
+}
+#login-dp .bottom{
+    background-color:rgba(255,255,255,.8);
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+#login-dp .social-buttons{
+    margin:12px 0
+}
+#login-dp .social-buttons a{
+    width: 49%;
+}
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+.btn-fb{
+    color: #fff;
+    background-color:#3b5998;
+}
+.btn-fb:hover{
+    color: #fff;
+    background-color:#496ebc
+}
+.btn-tw{
+    color: #fff;
+    background-color:#55acee;
+}
+.btn-tw:hover{
+    color: #fff;
+    background-color:#59b5fa;
+}
+
+
+/**
+
+Big Button
+
+*/
+
+.main-container{
+    margin-left: 30%;
+}
+.main-container .btn-holder{
+    margin-bottom: 50px;
+    padding:50px;
+}
+.main-container .btn{
+    width: 300px;
+    border-radius: 0px;
+    border-bottom: 7px solid #4CAF50;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 400;
+    color: #444;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.sideb{
+    position: fixed;
+}
+.sidebar{
+    margin-top: 5em;
+    position: fixed;
+}
+.sidebar li{
+    list-style-type: none;
+    margin-top: .7em;
+}
+.sidebar ul{
+    padding-left: 0px;
+}
+
+.sidebar a{
+    text-decoration: none;
+    transition: .5s color ease-in-out;
+}
+
+.Box {
+    position: relative;
+    padding: 2rem;
+    border: 2px solid #f1f1f1;
+    border-radius: 3px;
+}
+.product-list-items{
+    height: 250px;
+}
+.product-list-items .col-md-3 {
+    height: 100%;
+    
+}
+.product-list-items .col-md-9{
+    padding-right: 10px;
+}
+.product-list-items .btn{
+    font-size: 80%;
+    width: 100px;
+}
+.hr-custom{
+    width: 120%;
+}
+.product-img{
+    width: 100%;
+}
+/* Media Queries */
+@media(max-width:768px){
+    #login-dp{
+        background-color: inherit;
+        color: #fff;
+    }
+    #login-dp .bottom{
+        background-color: inherit;
+        border-top:0 none;
+    }
+}
