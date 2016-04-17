@@ -18,10 +18,10 @@
         service.Create = Create;
         service.Update = Update;
         service.Delete = Delete;
-        service.PostRide=PostRide;
+        service.donate=donate;
         service.getAllRides=getAllRides;
         service.getAllReq=getAllReq;
-        service.ReqRide=ReqRide;
+        service.profile=profile;
         service.getridematches=getridematches;
         service.getreqmatches=getreqmatches;
         return service;
@@ -61,16 +61,16 @@
             //return $http.post('/api/users', user).then(handleSuccess, handleError('Error creating user'));
         }
 
-        function PostRide(ride) {
+        function donate(info) {
 
 
             var req = {
                 method: 'POST',
-                url: 'http://104.131.150.93:8080/PikkupMe/ride',
+                url: 'http://159.203.237.72:8080/feedemall/donate',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
-                data: $.param({  origin:ride.origin, destination: ride.destin, seats: ride.avaiseats,date:ride.date,username:ride.username })
+                data: $.param({  restName:info.restName, address: info.address, phoneno: info.phoneno,availableFor:info.availableFor,until:info.until,zipcode:info.zipcode,lat:info.lat,long:info.long,description:info.description})
             }
             console.log(req);
             return $http(req)
@@ -82,16 +82,16 @@
             //return $http.post('/api/users', user).then(handleSuccess, handleError('Error creating user'));
         }
 
-        function ReqRide(ride) {
+        function profile(info) {
 
 
             var req = {
                 method: 'POST',
-                url: 'http://104.131.150.93:8080/PikkupMe/request',
+                url: 'http://159.203.237.72:8080/feedemall/profile',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
-                data: $.param({  origin:ride.origin, destination: ride.destin,date:ride.date,username:ride.username })
+                data: $.param({  name:info.name, email: info.email,phoneno:info.phoneno,address:info.address,zipcode:info.zipcode,username:info.username })
             }
             console.log("request : ");
             console.log(req);

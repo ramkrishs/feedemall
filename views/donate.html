@@ -1,144 +1,150 @@
 <div class="container main-container">
-            <div class="row">
-                <div class="col-md-12 ">
-                    <div class="update-profile">
-                        <form action="">
-                            <!--  General -->
-                            <div class="form-group">
-                                <h2 class="heading">
-                                    Enter the restaurant Details:
-                                </h2>
-                                <div class="controls">
-                                    <input class="floatLabel" id="restName" name="restName" type="text">
-                                        <label for="restName">
-                                            Restaurant Name
-                                        </label>
-                                    </input>
-                                </div>
-                                <div class="controls">
-                                    <input class="floatLabel" id="address" name="address" type="text">
-                                        <label for="address">
-                                            Address
-                                        </label>
-                                    </input>
-                                </div>
-                                <div class="controls">
-                                    <input class="floatLabel" id="phoneno" name="phoneno" type="tel">
-                                        <label for="phoneno">
-                                            Phone
-                                        </label>
-                                    </input>
-                                </div>
-                                <div class="form-group">
-                                    <h2 class="heading">
-                                        Details
-                                    </h2>
-                                    <div class="grid">
-                                        <div class="col-2-3">
-                                            <div class="controls">
-                                                <i class="fa fa-sort">
-                                                </i>
-                                                <select class="floatLabel" id="availableFor" name="availableFor">
-                                                    <option value="blank">
-                                                    </option>
-                                                    <option value="0-10">
-                                                        0-10
-                                                    </option>
-                                                    <option selected="" value="11-20">
-                                                        11-20
-                                                    </option>
-                                                    <option value="21-30">
-                                                        21-30
-                                                    </option>
-                                                </select>
-                                                <label for="availableFor">
-                                                    <i class="fa fa-male">
-                                                    </i>
-                                                    Available For
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="col-1-3">
-                                            <div class="controls">
-                                                <i class="fa fa-sort">
-                                                </i>
-                                                <select class="floatLabel" id="until" name="until">
-                                                    <option value="blank">
-                                                    </option>
-                                                    <option value="0.5">
-                                                        half an hour
-                                                    </option>
-                                                    <option selected="" value="1">
-                                                        one hour
-                                                    </option>
-                                                    <option value="1.5">
-                                                        one hour 30 min
-                                                    </option>
-                                                    <option value="2">
-                                                        two hour
-                                                    </option>
-                                                </select>
-                                                <label for="until">
-                                                    Food available for next
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--  Details -->
-                                <div class="form-group">
-                                    <div class="grid">
-                                        <p class="info-text">
-                                            Please describe about the food e.g. Veg, Non Veg, Egg Rice etc.
-                                        </p>
-                                        <br>
-                                            <div class="controls">
-                                                <textarea class="floatLabel" id="description" name="description">
-                                                </textarea>
-                                                <label for="comments">
-                                                    Description
-                                                </label>
-                                            </div>
-                                            <input type="hidden" value="" class="lat" name="lat">
-                                            <input type="hidden" value="" class="long" name="long">
-                                            <input type="hidden" value="" class="zipcode" name="zipcode">
-                                            
-                                        </br>
-                                    </div>
+    <div class="row">
+        <div class="col-md-12 ">
+            <div class="update-profile">
+                <form name="form" ng-submit="vm.donate()" role="form">
+                    <!--  General -->
+                    <div class="form-group">
+                        <h2 class="heading">
+                            Enter the restaurant Details:
+                        </h2>
+                        <div class="controls">
+                            <input class="floatLabel" id="restName" ng-model="vm.info.restName" name="restName" type="text">
+                            <label for="restName">
+                                Restaurant Name
+                            </label>
+                            </input>
+                        </div>
+                        <div class="controls">
+                            <input class="floatLabel" id="address"  name="address" type="text" g-places-autocomplete ng-model="vm.place">
+                            <label for="address">
+                                Address
+                            </label>
+                            </input>
+                        </div>
+                        <div class="controls">
+                            <input class="floatLabel" id="phoneno" ng-model="vm.info.phoneno" name="phoneno" type="tel">
+                            <label for="phoneno">
+                                Phone
+                            </label>
+                            </input>
+                        </div>
+                        <div class="form-group">
+                            <h2 class="heading">
+                                Details
+                            </h2>
+                            <div class="grid">
+                                <div class="col-2-3">
                                     <div class="controls">
-                                    <button class="col-1-4" type="submit" value="Submit">
-                                                <strong>
-                                                    Submit
-                                                </strong>
-                                    </button>
+                                        <i class="fa fa-sort">
+                                        </i>
+                                        <select class="floatLabel" ng-model="vm.info.availableFor" id="availableFor" name="availableFor">
+                                            <option value="blank">
+                                            </option>
+                                            <option value="0-10">
+                                                0-10
+                                            </option>
+                                            <option selected="" value="11-20">
+                                                11-20
+                                            </option>
+                                            <option value="21-30">
+                                                21-30
+                                            </option>
+                                        </select>
+                                        <label for="availableFor">
+                                            <i class="fa fa-male">
+                                            </i>
+                                            Available For
+                                        </label>
+                                    </div>
                                 </div>
+                                <div class="col-1-3">
+                                    <div class="controls">
+                                        <i class="fa fa-sort">
+                                        </i>
+                                        <select class="floatLabel" ng-model="vm.info.until" id="until" name="until">
+                                            <option value="blank">
+                                            </option>
+                                            <option value="0.5">
+                                                half an hour
+                                            </option>
+                                            <option selected="" value="1">
+                                                one hour
+                                            </option>
+                                            <option value="1.5">
+                                                one hour 30 min
+                                            </option>
+                                            <option value="2">
+                                                two hour
+                                            </option>
+                                        </select>
+                                        <label for="until">
+                                            Food available for next
+                                        </label>
+                                    </div>
                                 </div>
-                                <!-- /.form-group -->
                             </div>
-                        </form>
+                        </div>
+                        <!--  Details -->
+                        <div class="form-group">
+                            <div class="grid">
+                                <p class="info-text">
+                                    Please describe about the food e.g. Veg, Non Veg, Egg Rice etc.
+                                </p>
+                                <br>
+                                <div class="controls">
+                                                <textarea class="floatLabel" ng-model="vm.info.description" id="description" name="description">
+                                                </textarea>
+                                    <label for="comments">
+                                        Description
+                                    </label>
+                                </div>
+                                <input type="hidden" value="32.772825" class="lat" ng-model="vm.info.lat" name="lat">
+                                <input type="hidden" value="-96.80186900000001" class="long" ng-model="vm.info.long" name="long">
+                                <input type="hidden" value="75080" class="zipcode" ng-model="vm.info.zipcode" name="zipcode">
+
+                                </br>
+                            </div>
+                            <div class="controls">
+                                <google-map-locator class="google-map"
+                                                    radius="10"
+                                                    on-location-initialize="onLocationInitialize(addressComponents)"
+                                                    on-location-change="onLocationChange(addressComponents)">
+                                </google-map-locator>
+                                <button class="col-1-4" type="submit" ng-disabled="form.$invalid || vm.dataLoading" value="Submit">
+                                    <strong>
+                                        Submit
+                                    </strong>
+                                </button>
+                                <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                            </div>
+                        </div>
+                        <!-- /.form-group -->
                     </div>
-                </div>
+                </form>
             </div>
         </div>
-        <script>
-   (function($) {
-   function floatLabel(inputType) {
-    $(inputType).each(function() {
-      var $this = $(this);
-      // on focus add cladd active to label
-      $this.focus(function() {
-        $this.next().addClass("active");
-      });
-      //on blur check field and remove class if needed
-      $this.blur(function() {
-        if ($this.val() === '' || $this.val() === 'blank') {
-          $this.next().removeClass();
+    </div>
+</div>
+<script>
+    (function($) {
+        function floatLabel(inputType) {
+            $(inputType).each(function() {
+                var $this = $(this);
+                // on focus add cladd active to label
+                $this.focus(function() {
+                    $this.next().addClass("active");
+                });
+                //on blur check field and remove class if needed
+                $this.blur(function() {
+                    if ($this.val() === '' || $this.val() === 'blank') {
+                        $this.next().removeClass();
+                    }
+                });
+            });
         }
-      });
-    });
-  }
-  // just add a class of "floatLabel to the input field!"
-  floatLabel(".floatLabel");
-})(jQuery);
+        // just add a class of "floatLabel to the input field!"
+        floatLabel(".floatLabel");
+    })(jQuery);
 </script>
-        <!-- /.container -->
+<!-- /.container -->

@@ -8,14 +8,15 @@
         .module('FeedApp')
         .controller('LoginController', LoginController);
 
-    LoginController.$inject = ['$state', 'AuthenticationService', 'FlashService'];
-    function LoginController($state, AuthenticationService, FlashService) {
+    LoginController.$inject = ['$state', 'AuthenticationService', 'FlashService','$rootScope'];
+    function LoginController($state, AuthenticationService, FlashService,$rootScope) {
         var vm = this;
 
         vm.login = login;
 
         (function initController() {
             // reset login status
+
             AuthenticationService.ClearCredentials();
         })();
 

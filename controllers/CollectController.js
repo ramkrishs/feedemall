@@ -6,17 +6,22 @@
 
     angular
         .module('FeedApp')
-        .controller('CollectController', CollectController);
+        .controller('CollectController', CollectController)
+        .directive('myCustomer', function() {
+            return {
+                restrict: 'E',
+                template: "<div>hi<div>"
+            };
+        });
 
-    CollectController.$inject = ['$state', 'AuthenticationService', 'FlashService'];
-    function CollectController($state, AuthenticationService, FlashService) {
+    CollectController.$inject = ['$state', 'AuthenticationService','$rootScope', 'FlashService'];
+    function CollectController($state, AuthenticationService, FlashService,$rootScope) {
         var vm = this;
 
-        vm.login = login;
 
         (function initController() {
             // reset login status
-            //AuthenticationService.ClearCredentials();
+            vm.user=$rootScope.globals.currentUser;
         })();
 
         function login() {
@@ -26,7 +31,7 @@
                     console.log("success");
                     AuthenticationService.SetCredentials(vm.username, vm.password);
                     //e.preventDefault();
-                   // $timeout(()=>{$state.go('home')},0);
+                    // $timeout(()=>{$state.go('home')},0);
                     $state.go('home');
                 } else {
                     console.log("fail");

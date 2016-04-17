@@ -15,7 +15,7 @@
       <ul class="nav navbar-nav navbar-right">
         
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown"><b>Guest</b> <span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown"><b>{{vm.user.username}}</b> <span class="caret"></span></a>
       <ul id="login-dp" class="dropdown-menu">
         <li>
            <div class="row">
@@ -31,7 +31,7 @@
                  </div>
               </div>
               <div class="bottom text-center">
-                Do you want to logout? <a href="#"><b>Logout</b></a>
+                Do you want to logout? <a ui-sref="login" ng-click="vm.logout()"><b>Logout</b></a>
               </div>
            </div>
         </li>

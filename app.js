@@ -4,7 +4,7 @@
 (function () {
     'use strict';
 angular
-    .module('FeedApp', ['ui.router','ngCookies', 'ngAnimate','uiRouterStyles'])
+    .module('FeedApp', ['ui.router','ngCookies', 'ngAnimate','uiRouterStyles','google.places'])
 
     .config(function($stateProvider, $urlRouterProvider)
     {
@@ -15,7 +15,11 @@ angular
                 name:'home',
                 url: '/',
                 views: {
-                    'header': { templateUrl: './views/partials/header.html' },
+                    'header': { templateUrl: './views/partials/header.html',
+                        controller: 'HeaderController',
+                        controllerAs: 'vm'
+
+                    },
                     'body': { templateUrl: './views/home.html'},
                     'footer': { templateUrl: './views/partials/footer.html' }
                 },
@@ -26,7 +30,11 @@ angular
                 url: '/',
                 views: {
 
-                    'header': { templateUrl: './views/partials/header.html' },
+                    'header': { templateUrl: './views/partials/header.html',
+                        controller: 'HeaderController',
+                        controllerAs: 'vm'
+
+                    },
                     'body': { templateUrl: './templates/home.html'},
                     'footer': { templateUrl: './views/partials/footer.html' }
                 },
@@ -67,8 +75,14 @@ angular
                 url:'/home/donate',
                 views: {
 
-                    'header': { templateUrl: './views/partials/header.html' },
-                    'body': { templateUrl: './views/donate.html'},
+                    'header': { templateUrl: './views/partials/header.html',
+                        controller: 'HeaderController',
+                        controllerAs: 'vm'
+
+                    },
+                    'body': { templateUrl: './views/donate.html',
+                        controller: 'DonateController',
+                        controllerAs: 'vm'},
                     'footer': { templateUrl: './views/partials/footer.html' }
                 },
                 module: 'private'
@@ -78,8 +92,14 @@ angular
                 url:'/home/collect',
                 views: {
 
-                    'header': { templateUrl: './views/partials/header.html' },
-                    'body': { templateUrl: './views/collect.html'},
+                    'header': { templateUrl: './views/partials/header.html',
+                        controller: 'HeaderController',
+                        controllerAs: 'vm'
+
+                    },
+                    'body': { templateUrl: './views/collect.html',
+                        controller: 'CollectController',
+                        controllerAs: 'vm'},
                     'footer': { templateUrl: './views/partials/footer.html' }
                 },
                 module: 'private'
@@ -89,8 +109,14 @@ angular
                 url:'/home/profile',
                 views: {
 
-                    'header': { templateUrl: './views/partials/header.html' },
-                    'body': { templateUrl: './views/profile.html'},
+                    'header': { templateUrl: './views/partials/header.html',
+                        controller: 'HeaderController',
+                        controllerAs: 'vm'
+
+                    },
+                    'body': { templateUrl: './views/profile.html',
+                        controller: 'ProfileController',
+                        controllerAs: 'vm'},
                     'footer': { templateUrl: './views/partials/footer.html' }
                 },
                 module: 'private'

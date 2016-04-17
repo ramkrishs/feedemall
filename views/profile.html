@@ -3,74 +3,73 @@
     <div class="row">
         <div class="col-md-12 ">
             <div class="update-profile">
-                <form action="" class="main-forms">
+                <form name="form" ng-submit="vm.profile()" role="form">
                     <!--  General -->
                     <div class="form-group">
                         <h2 class="heading">
                             Update your Contact information
                         </h2>
                         <div class="controls">
-                            <input class="floatLabel" id="name" name="name" type="text">
-                                <label for="name">
-                                    Full name
-                                </label>
+                            <input class="floatLabel" id="name" name="name" ng-model="vm.info.name"  type="text">
+                            <label for="name">
+                                Full name
+                            </label>
                             </input>
                         </div>
                         <div class="controls">
-                            <input class="floatLabel" id="email" name="email" type="text">
-                                <label for="email">
-                                    Email
-                                </label>
+                            <input class="floatLabel" id="email" name="email" ng-model="vm.info.email" type="text">
+                            <label for="email">
+                                Email
+                            </label>
                             </input>
                         </div>
                         <div class="controls">
-                            <input class="floatLabel" id="phoneno" name="phoneno" type="tel">
-                                <label for="phoneno">
-                                    Phone
-                                </label>
+                            <input class="floatLabel" id="phoneno" name="phoneno" ng-model="vm.info.phoneno" type="tel">
+                            <label for="phoneno">
+                                Phone
+                            </label>
                             </input>
                         </div>
                         <div class="grid">
                             <div class="col-2-3">
                                 <div class="controls">
-                                    <input class="floatLabel" id="address" name="address" type="text">
-                                        <label for="address">
-                                            Address
-                                        </label>
+                                    <input class="floatLabel" id="address" name="address" ng-model="vm.info.address" type="text">
+                                    <label for="address">
+                                        Address
+                                    </label>
                                     </input>
                                 </div>
                             </div>
                             <div class="col-1-3">
                                 <div class="controls">
-                                    <input class="floatLabel" id="zipcode" name="zipcode" type="text">
-                                        <label for="zipcode">
-                                            Post Code
-                                        </label>
+                                    <input class="floatLabel" id="zipcode" name="zipcode" ng-model="vm.info.zipcode" type="text">
+                                    <label for="zipcode">
+                                        Post Code
+                                    </label>
                                     </input>
                                 </div>
                             </div>
-                            <input name="username" type="hidden" value="">
+                            <input name="username" type="hidden" ng-model="vm.info.username" value="">
                             </input>
                         </div>
                     </div>
-                    <input class="lat" id="us2-lat" name="lat" type="hidden" value="">
-                        <input class="long" id="us2-lon" name="long" type="hidden" value="">
-                            <input class="zipcode" name="zipcode" type="hidden" value="">
-                                <!--  Details -->
-                                <div class="form-group">
-                                    <div class="grid">
-                                        <div class="controls">
-                                            <button class="col-1-4" type="submit" value="Submit">
-                                                <strong>
-                                                    Submit
-                                                </strong>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <!-- /.form-group -->
-                                </div>
-                            </input>
-                        </input>
+
+                    <!--  Details -->
+                    <div class="form-group">
+                        <div class="grid">
+                            <div class="controls">
+                                <button class="col-1-4" type="submit" value="Submit" ng-disabled="form.$invalid || vm.dataLoading" >
+                                    <strong>
+                                        Submit
+                                    </strong>
+                                </button>
+                                <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                            </div>
+                        </div>
+                        <!-- /.form-group -->
+                    </div>
+                    </input>
+                    </input>
                     </input>
                 </form>
             </div>
@@ -86,37 +85,23 @@
     </div>
 </div>
 <script>
-jQuery(document).ready(function($) {
-   
-    $('#us2').locationpicker({
-            location: {latitude: 46.15242437752303, longitude: 2.7470703125},
-            radius: 300,
-            inputBinding: {
-                latitudeInput: $('#us2-lat'),
-                longitudeInput: $('#us2-lon'),
-                locationNameInput: $('#address')
-            },
-            enableAutocomplete: true
-        });
-});
-   (function($) {
-
-   function floatLabel(inputType) {
-    $(inputType).each(function() {
-      var $this = $(this);
-      // on focus add cladd active to label
-      $this.focus(function() {
-        $this.next().addClass("active");
-      });
-      //on blur check field and remove class if needed
-      $this.blur(function() {
-        if ($this.val() === '' || $this.val() === 'blank') {
-          $this.next().removeClass();
+    (function($) {
+        function floatLabel(inputType) {
+            $(inputType).each(function() {
+                var $this = $(this);
+                // on focus add cladd active to label
+                $this.focus(function() {
+                    $this.next().addClass("active");
+                });
+                //on blur check field and remove class if needed
+                $this.blur(function() {
+                    if ($this.val() === '' || $this.val() === 'blank') {
+                        $this.next().removeClass();
+                    }
+                });
+            });
         }
-      });
-    });
-  }
-  // just add a class of "floatLabel to the input field!"
-  floatLabel(".floatLabel");
-})(jQuery);
+        // just add a class of "floatLabel to the input field!"
+        floatLabel(".floatLabel");
+    })(jQuery);
 </script>
