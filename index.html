@@ -1,53 +1,39 @@
-
-<html>
+<!DOCTYPE html>
+<html ng-app="FeedApp">
 <head>
     <title>Welcome to Feed-em-all</title>
+     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
     <link href="css/bootstrap.min.css"  rel="stylesheet" type="text/css" />
-    <link href="css/index.css" rel="stylesheet" type="text/css" />
+    <link href="css/main.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery-2.2.3.min.js"></script>
+
     </head>
-<body>
-
-<div class="container">
-    <div class="content">
-        <div class="title"><img class="home-logo" src="img/logo.png"></div>
-                
-
-    <div class="form-container">
-
-        <h1><strong>Sign up here to our portal</strong></h1>
-        <p class='explanation'>
-            To sign up make sure you use your email id.
-        </p>
-        <form role="form" method="POST" action="">
-
-        <div class='form'>
-            <div class='field'>
-                <input class='placeholder-input ' name="email" id='email' type='email'
-                       value="">
-                                <label class='placeholder-label' for='email'>Email</label>
-            </div>
-            <div class='field'>
-                <input class='placeholder-input ' name="password" id='password' type='password'>
-                                <label class='placeholder-label' for='password'>Password</label>
-            </div>
-            <div class="field">
-                <button class="placeholder-input btn-lg btn-success " type="submit" >Sign in</button>
-            </div>
-            <div class="field">
-                <input type="hidden" name="_token" value="lz4vIGwBxTv2FTeKCV0VK5DJMhIIO642UpR8o6qb">
-            </div>
-
-
-        </div>
-        </form>
-        <label class="placeholder-label">Donot have an account? <a href="register.html">Sign up</a></label>
+<body >
+   
+    <div ng-controller="FeedController">
+        <div ui-view="header"></div>
+        <div ui-view="body"></div>
+        <div ui-view="footer"></div>
     </div>
+   
 
+<script data-require="angular.js@1.2.10" data-semver="1.2.10" src="http://code.angularjs.org/1.2.10/angular.min.js"></script>
+<script data-require="angular-animate@1.2.11" data-semver="1.2.11" src="http://code.angularjs.org/1.2.11/angular-animate.min.js"></script>
+<script src="http://angular-ui.github.io/ui-router/release/angular-ui-router.min.js"></script>
+<script src="http://code.angularjs.org/1.2.13/angular-cookies.js"></script>
+<script src="js/plugin.js"></script>
+<script src="js/jquery-2.2.3.min.js"></script>
 
-    </div>
-</div>
+<script  src="app.js"></script>
+<script src="services/authentication.service.js"></script>
+<script src="services/flash.service.js"></script>
 
+<!-- Real user service that uses an api -->
+<script src="services/user.service.js"></script>
+
+<script src="controllers/LoginController.js"></script>
+<script src="controllers/SignupController.js"></script>
 <script src="js/jquery-2.2.3.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>

@@ -1,4 +1,10 @@
+
+jQuery(document).ready(function($) {
+});
+
 (function($) {
+
+ 
   function floatLabel(inputType) {
     $(inputType).each(function() {
       var $this = $(this);
