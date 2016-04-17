@@ -12,28 +12,26 @@
     function SignupController($state, AuthenticationService, FlashService) {
         var vm = this;
 
-        vm.login = login;
-
+        vm.register = register;
+        
         (function initController() {
             // reset login status
             //AuthenticationService.ClearCredentials();
         })();
 
-        function login() {
+        function register() {
             vm.dataLoading = true;
-            AuthenticationService.Login(vm.username, vm.password, function (response) {
-                if (response.success) {
-                    console.log("success");
-                    AuthenticationService.SetCredentials(vm.username, vm.password);
-                    //e.preventDefault();
-                   // $timeout(()=>{$state.go('home')},0);
-                    $state.go('home');
-                } else {
-                    console.log("fail");
-                    FlashService.Error(response.message);
-                    vm.dataLoading = false;
-                }
-            });
+            UserService.Create(vm.user)
+                .then(function (response) {
+                    console.log(response);
+                    if (response.data.success) {
+                        FlashService.Success('Registration successful', true);
+                        $location.path('/login');
+                    } else {
+                        FlashService.Error(response.message);
+                        vm.dataLoading = false;
+                    }
+                });
         };
     }
 

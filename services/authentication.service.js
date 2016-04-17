@@ -37,7 +37,7 @@
 
             var req = {
                 method: 'POST',
-                url: 'http://159.203.237.72:8080/feedemall/login',
+                url: 'http://feedemall.org:8080/feedemall/login',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
