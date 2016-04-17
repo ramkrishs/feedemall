@@ -1,8 +1,143 @@
+<style>
+   .Box {
+    position: relative;
+    padding: 2rem;
+    border: 2px solid #f1f1f1;
+    border-radius: 3px;
+}
+.products-grp{
+    margin-top: 20px;
+     height: 550px;
+}
+.product-lists{
+   height:500px;
+   overflow:auto;
+}
+.product-list-items{
+    height: 250px;
+}
+.product-list-items .col-md-3 {
+    height: 100%;
 
+}
+.product-list-items .col-md-9{
+    padding-right: 10px;
+}
+.product-list-items .btn{
+    font-size: 80%;
+    width: 150px;
+}
+.hr-custom{
+    margin-top: 25%;
+
+    width: 100%;
+}
+.product-img{
+    width: 100%;
+}
+</style>
 
 <div class="container main-container">
-    <div class="row">
-        <p>i am home!</p>
-        <my-customer></my-customer>
-    </div>
-</div>
+         <div class="row">
+            <div class="col-md-6">
+               <div class="map-container">
+                  <div id="map" style="width: 100%; height:700px"></div>
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="row">
+                  <div class="col-md-12">
+                     <form name="form" ng-submit="vm.collect()" role="form">
+                        <input type="hidden" id="lat-val" ng-model="vm.loc.lat" >
+                     </input>
+                     <input type="hidden" id="long-val" ng-model="vm.loc.lng">
+                     </input>
+                     <button type="submit" class="btn btn-success btn-custom" type="submit" ng-disabled="form.$invalid || vm.dataLoading" value="Submit">Food Near you</button>
+                     </form>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="products-grp">
+                        <div class="product-lists" ng-repeat="resta in vm.restas">
+                           <div class="Box list-group product-list-items">
+                              <a class="product-item" href="#">
+                                 <div class="col-md-3">
+                                    <img alt="" class="product-img" src="http://i.imgur.com/lVvwv.jpg">
+                                    </img>
+                                 </div>
+                                 <div class="col-md-9">
+                                    <h4 class="list-group-item-heading">
+                                       {{resta.restname}}
+                                    </h4>
+                                    <hr>
+                                    <div class="col-md-12">
+                                       <h5>
+                                          Description
+                                       </h5>
+                                       <p class="list-group-item-text">
+                                          {{resta.description}}
+                                       </p>
+                                    </div>
+                                    <hr class="hr-custom">
+                                    <div class="">
+                                       
+                              <a class="btn btn-default btn-lg" href="">
+                              Time left: {{resta.timeleft}}
+                              </a>
+                              <a class="btn btn-default btn-lg pull-right" onclick="initMap()">Show in map</a>
+                              <p style="display:none;" id="resta-lat">{{resta.lat}}</p>
+                              <p style="display:none;" id="resta-lng">{{resta.lng}}</p>
+                              </div>
+                              </hr>
+                              </hr>
+                              </div>
+                              </a>
+                           </div>
+                          
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script>
+         function initMap() {
+            console.log("hi");
+            var lat = Number($('#resta-lat').text());
+            var lgn = Number($('#resta-lng').text());
+            var myLatLng = {lat: lat, lng: lgn};
+
+         var mapDiv = document.getElementById('map');
+         var map = new google.maps.Map(mapDiv, {
+         center: myLatLng,
+         zoom: 15
+         });
+         var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: ''
+  });
+         }
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+        async defer></script>
+      <script>
+         function getLocation() {
+         if (navigator.geolocation) {
+         navigator.geolocation.getCurrentPosition(showPosition);
+         } else { 
+         x.innerHTML = "Geolocation is not supported by this browser.";
+         }
+         }
+         
+         function showPosition(position) {
+         
+          $('#lat-val').attr('value',position.coords.latitude);
+         $('#long-val').attr('value',position.coords.longitude);  
+         }
+         jQuery(document).ready(function($) {
+            getLocation();
+         });
+      </script>   

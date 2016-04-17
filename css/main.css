@@ -56,7 +56,6 @@ footer {
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
     color: #fff !important;
 }
-
 .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
     color: #fff;
     background-color: #202d3a;
@@ -111,24 +110,19 @@ footer {
         border-top:0 none;
     }
 }
-
 a {
   text-decoration: none;
 }
-
 .info-text {
   text-align: left;
   width: 100%;
 }
-
 header, .main-forms {
     padding: .5em 10%;
 }
-
 .form-group {
   margin-bottom: 20px;
 }
-
 h2.heading {
   font-size: 18px;
   text-transform: uppercase;
@@ -139,7 +133,6 @@ h2.heading {
   padding-bottom: 3px;
   margin-bottom: 20px;
 }
-
 .controls {
   text-align: left;
   position: relative;
@@ -243,7 +236,6 @@ h2.heading {
   resize: none;
   height: 200px;
 }
-
 button {
   cursor: pointer;
   background-color: #1b3d4d;
@@ -255,13 +247,11 @@ button {
 button:hover {
   background-color: #224c60;
 }
-
 .clear:after {
   content: "";
   display: table;
   clear: both;
 }
-
 .grid {
   background: white;
 }
@@ -271,7 +261,6 @@ button:hover {
   display: table;
   clear: both;
 }
-
 [class*='col-'] {
   float: left;
   padding-right: 10px;
@@ -279,32 +268,46 @@ button:hover {
 .grid [class*='col-']:last-of-type {
   padding-right: 0;
 }
-
 .col-2-3 {
   width: 66.66%;
 }
-
 .col-1-3 {
   width: 33.33%;
 }
-
 .col-1-2 {
   width: 50%;
 }
-
 .col-1-4 {
   width: 25%;
 }
-
 @media (max-width: 760px) {
   .col-1-4-sm, .col-1-3, .col-2-3 {
     width: 100%;
   }
-
   [class*='col-'] {
     padding-right: 0px;
   }
 }
 .col-1-8 {
   width: 12.5%;
+}
+.slide-animate.ng-enter, .slide-animate.ng-leave{
+    -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s;
+    -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s;
+    -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s;
+}
+.slide-animate.ng-enter.ng-enter-active {
+    position: absolute;
+    left: 1300px;
+}
+.slide-animate.ng-enter {
+    left: 0;
+}
+.slide-animate.ng-leave.ng-leave-active {
+    position: absolute;
+    left: -1700px;
+}
+.slide-animate.ng-leave {
+    right: 0;
 }

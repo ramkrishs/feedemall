@@ -6,40 +6,47 @@
 
     angular
         .module('FeedApp')
-        .controller('CollectController', CollectController)
-        .directive('myCustomer', function() {
-            return {
-                restrict: 'E',
-                template: "<div>hi<div>"
-            };
-        });
+        .controller('CollectController', CollectController);
 
-    CollectController.$inject = ['$state', 'AuthenticationService','$rootScope', 'FlashService'];
-    function CollectController($state, AuthenticationService, FlashService,$rootScope) {
+    CollectController.$inject = ['UserService', '$state','$rootScope', 'FlashService','$scope'];
+    function CollectController(UserService, $state,$rootScope,FlashService,$scope) {
         var vm = this;
-
-
+        vm.restas = [];
+        vm.loc={};
+       
+        console.log("in here");
+        vm.collect = collect;
+       
+        vm.res=null;
+         
         (function initController() {
-            // reset login status
             vm.user=$rootScope.globals.currentUser;
+            
+            
         })();
 
-        function login() {
+        function collect() {
+                vm.loc.lat ="32.7692403" ;
+                vm.loc.lng ="-96.7977447" ;
+             console.log(vm.loc.lat);
             vm.dataLoading = true;
-            AuthenticationService.Login(vm.username, vm.password, function (response) {
-                if (response.success) {
-                    console.log("success");
-                    AuthenticationService.SetCredentials(vm.username, vm.password);
-                    //e.preventDefault();
-                    // $timeout(()=>{$state.go('home')},0);
-                    $state.go('home');
-                } else {
-                    console.log("fail");
-                    FlashService.Error(response.message);
-                    vm.dataLoading = false;
-                }
-            });
-        };
+            UserService.collect(vm.loc)
+                .then(function (response) {
+                    //console.log(response);
+                    if (response.data) {
+
+                        vm.restas=response.data;
+                        console.log(vm.restas);
+                        //   FlashService.Success('post successfulddddddddddddddddddddddddd', true);
+                        // $location.path('/activity');
+                    } else {
+                        console.log(response.message);
+                        //FlashService.Error(response.data.message);
+                        vm.dataLoading = false;
+                    }
+                });
+        }
+
     }
 
 })();

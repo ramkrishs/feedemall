@@ -19,11 +19,11 @@
         service.Update = Update;
         service.Delete = Delete;
         service.donate=donate;
-        service.getAllRides=getAllRides;
+        service.collect = collect;
         service.getAllReq=getAllReq;
         service.profile=profile;
-        service.getridematches=getridematches;
-        service.getreqmatches=getreqmatches;
+       
+        
         return service;
 
         function GetAll() {
@@ -145,16 +145,16 @@
             //return $http.post('/api/users', user).then(handleSuccess, handleError('Error creating user'));
         }
 
-        function getreqmatches(user) {
+        function collect(loc) {
 
 
             var req = {
-                method: 'GET',
-                url: 'http://104.131.150.93:8080/PikkupMe/requestmatches/'+user,
+                method: 'POST',
+                url: 'http://159.203.237.72:8080/feedemall/collect',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
-                }
-                //data: $.param({  origin:ride.origin, destination: ride.destin,date:ride.date,username:ride.username })
+                },
+                data: $.param({  lat:loc.lat, long: loc.lng })
             }
             // console.log(req);
             return $http(req)
