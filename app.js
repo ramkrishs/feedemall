@@ -62,6 +62,39 @@ angular
                 },
                 module: 'public'
             })
+            .state('donate',{
+                name:'donate',
+                url:'/home/donate',
+                views: {
+
+                    'header': { templateUrl: './views/partials/header.html' },
+                    'body': { templateUrl: './views/donate.html'},
+                    'footer': { templateUrl: './views/partials/footer.html' }
+                },
+                module: 'private'
+            })
+            .state('collect',{
+                name:'collect',
+                url:'/home/collect',
+                views: {
+
+                    'header': { templateUrl: './views/partials/header.html' },
+                    'body': { templateUrl: './views/collect.html'},
+                    'footer': { templateUrl: './views/partials/footer.html' }
+                },
+                module: 'private'
+            })
+            .state('profile',{
+                name:'profile',
+                url:'/home/profile',
+                views: {
+
+                    'header': { templateUrl: './views/partials/header.html' },
+                    'body': { templateUrl: './views/profile.html'},
+                    'footer': { templateUrl: './views/partials/footer.html' }
+                },
+                module: 'private'
+            })
 
             
     })
