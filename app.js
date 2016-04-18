@@ -6,10 +6,13 @@
 angular
     .module('FeedApp', ['ui.router','ngCookies', 'ngAnimate','uiRouterStyles','google.places'])
 
-    .config(function($stateProvider, $urlRouterProvider)
+    .config(function($stateProvider, $urlRouterProvider,$httpProvider)
     {
         $urlRouterProvider.otherwise('/');
-
+          $httpProvider.defaults.headers.common = {};
+          $httpProvider.defaults.headers.post = {};
+          $httpProvider.defaults.headers.put = {};
+          $httpProvider.defaults.headers.patch = {};
         $stateProvider
             .state('home', {
                 name:'home',
